@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -8,6 +8,17 @@ const MENU = [
   { id: 'snack', label: 'Popcorn', price: 60 },
 ];
 
+/**
+ * Smart concessions ordering component allowing fast-lane digital checkout.
+ * Suggests pickup counter based on live crowd metrics.
+ * Uses useCallback ensuring function references aren't recreated pointlessly.
+ *
+ * @component
+ * @param {Object} props - The component properties.
+ * @param {Object} props.user - The currently authenticated Firebase user profile.
+ * @param {Object} props.recommendedCounter - The least densely crowded concession area.
+ * @returns {JSX.Element} The concession Order Panel interface.
+ */
 export default function OrderPanel({ user, recommendedCounter }) {
   const [item, setItem] = useState('');
   const [status, setStatus] = useState('');

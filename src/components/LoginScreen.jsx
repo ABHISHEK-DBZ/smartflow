@@ -5,6 +5,13 @@ import {
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 
+/**
+ * Provides an accessible robust login and registration interface bridging to Firebase Auth.
+ * Automatically tries registration if sign-in throws an error indicating no account exists.
+ *
+ * @component
+ * @returns {JSX.Element} A screen container representing the login view.
+ */
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
