@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { useCrowdData } from './hooks/useCrowdData';
@@ -7,6 +7,7 @@ import HeatmapOverlay from './components/HeatmapOverlay';
 import AlertBanner from './components/AlertBanner';
 import OrderPanel from './components/OrderPanel';
 import LoginScreen from './components/LoginScreen';
+import SOSButton from './components/dashboard/SOSButton';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -63,6 +64,10 @@ export default function App() {
           Sign Out
         </button>
       </header>
+
+      <div style={{ marginBottom: '16px' }}>
+        <SOSButton />
+      </div>
 
       <AlertBanner alerts={alerts} />
 

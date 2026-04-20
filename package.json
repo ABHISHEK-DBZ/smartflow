@@ -11,7 +11,7 @@
     "test": "jest --env=jsdom"
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.19.3",
+    "@react-google-maps/api": "^2.20.8",
     "firebase": "^10.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
