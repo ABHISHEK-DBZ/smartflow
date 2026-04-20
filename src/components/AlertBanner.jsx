@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function AlertBanner({ alerts }) {
   if (!alerts.length) return null;
   return (
